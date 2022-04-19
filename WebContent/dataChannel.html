@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+<title>DataChannel</title>
+
+<style>
+.button {
+    background-color: #DAA520;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 250px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 style="color: #5e9ca0; text-align: center;"> <strong><code>Data Channel </strong></h1>
+
+<body bgcolor="#FFFACD">
+
+<center><div id="container">
+	<textarea id="dataChannelSend" disabled placeholder="1: Press Start; 2: Enter text; 3: Press Send." rows="20" cols="50"></textarea>
+	<textarea id="dataChannelReceive" disabled rows="20" cols="50"></textarea>
+
+   <p id="dimensions"></p>
+
+  <div id="buttons">
+    <button id="startButton" style="padding: 15px 32px">Start</button>
+    <button id="sendButton" style="padding: 15px 32px">Send</button>
+    <button id="closeButton" style="padding: 15px 32px">Stop</button>
+    
+    <p id="dimensions"></p>
+  </div>
+</div></center>
+
+<script src="js/dataChannel.js"></script>
+<script src="js/lib/adapter.js"></script>
+
+<a href="LocalPeerConnection.html" class="button">Esempio precedente</a>
+  <a href="index.html" class="button">Menu</a>
+  
+
+</body>
+
+</html>

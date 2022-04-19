@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+<title>Local PeerConnection()</title>
+
+<style>
+.button {
+    background-color: #DAA520;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 100px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 style="color: #5e9ca0; text-align: center;"> <strong>RTCPeerConnection</strong></h1>
+
+<body bgcolor="#FFFACD">
+
+<table border="2" width="100%" style="color: #4169E1">
+	<tr>
+		<th style="color: #822222">
+			Local video
+		</th>
+		<th style="color: #822222">
+			'Remote' video
+		</th>		
+	</tr>
+	<tr>
+		<td >
+			<video id="localVideo" autoplay></video>
+		</td>
+		<td>
+			<video id="remoteVideo" autoplay></video>						
+		</td>	
+	</tr>
+	<tr>
+		<td align="center">
+		
+		
+		
+			<div>
+			
+				<button id="startButton">Start</button>
+				<button id="callButton">Call</button>
+				<button id="hangupButton">Hang Up</button>
+			</div>
+			
+		</td>
+		<td>
+			<!-- void -->
+		</td>
+	</tr>
+</table>
+
+<script src="js/localPeerConnection_2018.js"></script>
+<script src="js/lib/adapter.js"></script>
+
+<a href="constraints-filters.html" class="button">Esempio precedente</a>
+  <a href="index.html" class="button">Menu</a>
+  <a href="dataChannel.html" class="button">Esempio successivo</a>
+</body>
+
+</html>

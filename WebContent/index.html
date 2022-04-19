@@ -1,0 +1,251 @@
+<html>
+<head>
+
+	<title>Web RTC</title>
+	<link rel="Shortcut Icon" href="images/webrtc-logo-vert-retro-255x305.png" type="image/x-icon">
+	
+	<script type="text/javascript">
+
+		var enablepersist="on" //Enable saving state of content structure using session cookies? (on/off)
+		var collapseprevious="no" //Collapse previously open content when opening present? (yes/no)
+
+		var contractsymbol='- ' //HTML for contract symbol. For image, use: <img src="whatever.gif">
+		var expandsymbol='+ ' //HTML for expand symbol.
+
+		if (document.getElementById){
+		  document.write('<style type="text/css">')
+		  document.write('.switchcontent{display:none;}')
+		  document.write('</style>')
+		}
+
+		function getElementbyClass(rootobj, classname){
+		  var temparray=new Array()
+		  var inc=0
+		  var rootlength=rootobj.length
+		  for (i=0; i<rootlength; i++){
+		    if (rootobj[i].className==classname)
+		      temparray[inc++]=rootobj[i]
+		  }
+		  return temparray
+		}
+
+		function sweeptoggle(ec){
+		  var thestate=(ec=="expand")? "block" : "none"
+		  var inc=0
+		  while (ccollect[inc]){
+		    ccollect[inc].style.display=thestate
+		    inc++
+		  }
+		}
+
+		function contractcontent(omit){
+		  var inc=0
+		  while (ccollect[inc]){
+		  if (ccollect[inc].id!=omit)
+		    ccollect[inc].style.display="none"
+		    inc++
+		  }
+		}
+
+		function expandcontent(curobj, cid){
+		  var spantags=curobj.getElementsByTagName("SPAN")
+		  var showstateobj=getElementbyClass(spantags, "showstate")
+		  if (ccollect.length>0){
+		    if (collapseprevious=="yes")
+		      contractcontent(cid)
+		      document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+		      if (showstateobj.length>0){ //if "showstate" span exists in header
+		         if (collapseprevious=="no"){
+		            showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+		         }
+		      }
+		   }
+		}
+
+		function do_onload(){
+		   uniqueidn=window.location.pathname+"firsttimeload"
+		   var alltags=document.all? document.all : document.getElementsByTagName("*")
+		   ccollect=getElementbyClass(alltags, "switchcontent")
+		   statecollect=getElementbyClass(alltags, "showstate")
+		   if (enablepersist=="on" && ccollect.length>0){
+		      document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		      firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+		   }
+		}
+
+		if (window.addEventListener)
+		   window.addEventListener("load", do_onload, false)
+		else if (window.attachEvent)
+		   window.attachEvent("onload", do_onload)
+		else if (document.getElementById)
+		   window.onload=do_onload
+
+	</script>
+
+</head>
+
+<body >
+
+	<body bgcolor="yellow">
+	<div align="center">
+	<img src="images/webrtc-logo-horiz-retro-750x140.png" name="logo">
+	<hr />
+
+		<table>
+		<tbody>
+		<tr>
+	    <div>
+	        <td style="width: 10px; height: 20px; text-align: center;background-color: yellow;vertical-align: top;">
+	        	<p>&nbsp;</p>
+	        	<img src="images/Wikipedia-logo-v2-it.svg.png" name="logo7" width="150" height="150">
+        	    <p><b><a href="https://en.wikipedia.org/wiki/WebRTC" target="_blank">WebRtc Wikipedia</a></b></p>
+            	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+				<img src="images/webrtc-5-banner.png" name="logo8" width="180" height="70">
+            	<p><b><a href="https://webrtc.org/" target="_blank">WebRtc Home</a></b></p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<img src="images/w3c-logo.png" name="logo6" width="180" height="70">
+            	<p><b><a href="https://www.w3.org/TR/webrtc/" target="_blank">WebRtc W3C</a></b></p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<img src="images/webrtc-browsers4-300x217.png" name="logo6" width="180" height="130">
+            	<p><b><a href="http://iswebrtcreadyyet.com/" target="_blank">WebRTC Evolution</a></b></p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<p>&nbsp;</p>
+            	<img src="images/real-time-communication.jpg" name="logo" width="180" height="250">
+            	<p><b><a href="https://books.google.it/books?id=RPNfAwAAQBAJ&pg=PP2&lpg=PP2&dq=web+rtc+romano&source=bl&ots=paWk76FKe5&sig=SoWt9ReYA5E5Yb8WCp6PyV32Pkk&hl=it&sa=X&ved=0ahUKEwjy6dvmw73RAhWD3CwKHQ2hDcsQ6AEIRTAF#v=onepage&q=web%20rtc%20romano&f=false" target="_blank">Real-Time Communication with WebRTC: Peer-to-Peer in the Browser</a></b></p>
+            	<p>&nbsp;</p>
+
+			</td>
+	    </div>
+	     
+	    <div>
+	        <td style="width: 20px; height: 500px;  text-align: center; background-color: yellow;vertical-align: top;">
+	        </td>   
+	    </div>
+
+		<div>
+	        <td style="width: 1px; height: 500px;  text-align: center; background-color: grey;vertical-align: top;">
+	        </td>   
+	    </div>
+
+		<div>
+	        <td style="width: 100px; height: 500px;  text-align: center;border-color: red;  background-color: yellow;vertical-align: top;">
+	        </td>   
+	    </div>
+
+		<div>
+	        <td style="width: 400px; height: 500px;  text-align: center;vertical-align: top;background-color: yellow;">
+	        	<p>&nbsp;</p>
+	        	
+	        	<h3 onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span>1) Stream video from your webcam</h3>
+					<div id="sc1" class="switchcontent">
+					The getUserMedia() API allows web developers to obtain access to local device media :
+					<p><b><a href="getUserMedia.html" >(1)&nbsp;Get&nbsp;User&nbsp;Media</a></b></p>
+					</div>
+
+				<p>&nbsp;</p>
+
+				<h3 onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span>2) Stream video from your webcam with constraints</h3>
+					<div id="sc2" class="switchcontent">
+					The getUserMedia() API allows web developers to obtain access to local device media. It's also possible to specify some constraints about video and audio:
+					<p><b><a href="constraints.html" >(2)&nbsp;Get&nbsp;User&nbsp;Media&nbsp;Constraints</a></b></p>
+					</div>
+
+				<p>&nbsp;</p>
+
+				<h3 onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span>3) Stream video from your webcam with filters and snapshot</h3>
+					<div id="sc3" class="switchcontent">
+					The getUserMedia() API allows web developers to obtain access to local device media. It's also possible to use some filters and to make snapshot of the video :
+					<p><b><a href="constraints-filters.html" >(3)&nbsp;Get&nbsp;User&nbsp;Media &nbsp;Filters &nbsp;and&nbsp;Snapshot</a></b></p>
+					</div>
+
+				<p>&nbsp;</p>
+
+				<h3 onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span>4) Stream video with RTCPeerConnection</h3>
+					<div id="sc4" class="switchcontent">
+					RTCPeerConnection API() creates an RTCPeerConnection object, which is an abstraction for a communication channel between two users/browsers. The stream on the left represents a local capture, whereas the one on the right mimics a remote party:
+					<p><b><a href="LocalPeerConnection.html" >(4)&nbsp;RTC&nbsp;Peer&nbsp;Connection</a></b></p>
+					</div>
+
+				<p>&nbsp;</p>
+
+				<h3 onClick="expandcontent(this, 'sc5')" style="cursor:hand; cursor:pointer"><span class="showstate"></span>5) Use RTCDataChannel to exchange data</h3>
+					<div id="sc5" class="switchcontent">
+					RTCPeerConnection API() creates an RTCPeerConnection object, which is an abstraction for a communication channel between two users/browsers. It's also possible to add a DataChannel to a PeerConnection:
+					<p><b><a href="dataChannel.html" >(5)&nbsp;Data&nbsp;Channel</a></b></p>
+					</div>
+
+				<p>&nbsp;</p>
+
+	        </td>   
+	    </div>
+	        
+	    <div>
+	        <td style="width: 100px; height: 500px;  text-align: center;vertical-align: top;background-color: yellow;"></td>   
+	    </div>
+
+	    <div>
+	        <td style="width: 1px; height: 500px;  text-align: center; background-color: grey;vertical-align: top;">
+	        </td>   
+	    </div>
+
+	    <div>
+	        <td style="width: 20px; height: 500px;  text-align: center; background-color: yellow;vertical-align: top;">
+	        </td>   
+	    </div>
+	        
+	    <div>
+	        <td style="width: 10px; height: 20px;text-align: center; vertical-align: top;background-color: yellow;">
+	        
+	        	<p>&nbsp;</p>
+	          	
+	          	<img  src="images/webrtc.jpeg" name="logo2" width="150" height="120">
+				<p><b><a href="http://www.html.it/guide/guida-html5/" target="_blank">Html5 Guide</a></b></p>
+
+				<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+
+
+				<img  src="images/webrtc-logo-vert-retro-255x305 (2).png" name="logo4" width="150" height="120" >
+				<p><b><a href="https://www.javascript.com/" target="_blank">JavaScript Home</a></b></p>
+
+				<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+
+				<img  src="images/nodejs-webrtc.png" name="logo3" width="150" height="120" >
+				<p><b><a href="https://nodejs.org/it/" target="_blank">Node.js Download</a></b></p>
+
+	            <p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+
+		        <img  src="images/Eclipse-Neon-300x200.jpg" name="logo3" width="150" height="120" >
+				<p><b><a href="https://eclipse.org/downloads/" target="_blank">Eclipse Download</a></b></p>
+	            
+	            <p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+	         	<p>&nbsp;</p>
+
+	            <img src="images/janus-logo.png" name="logo5" width="180" height="90">
+				<p><b><a href="https://janus.conf.meetecho.com/" target="_blank">Janus WebRtc Gateway</a></b></p>
+				
+				<p>&nbsp;</p>
+
+		    </td>
+	    </div>
+		</tr>
+		</tbody>
+		</table>
+
+	</div> 
+
+</body>
+</html>

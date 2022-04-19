@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<title>getUserMedia and constraints</title>
+
+<style>
+.button {
+    background-color: #DAA520;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 100px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+<div id="mainDiv">
+
+  <h1 style="color: #5e9ca0; text-align: center;"> <strong><code>getUserMedia()</code>: seleziona la risoluzione </strong></h1>
+
+  <p>Scegli il pulsante da cliccare per cambiare la risoluzione del video:</p>
+
+  <body bgcolor="#FFFACD">
+  
+	<div id="buttons">
+	  <button id="qvga">320x240px</button>
+	  <button id="vga">640x480px</button>
+	  <button id="hd">1280x720px</button>
+	</div>
+
+  <p id="dimensions"></p>
+
+  <center><video autoplay></video></center>
+
+  <script src="js/get-user-media-constraints.js"></script>
+  
+  <a href="getUserMedia.html" class="button">Esempio precedente</a>
+  <a href="index.html" class="button">Menu</a>
+  <a href="constraints-filters.html" class="button">Esempio successivo</a>
+</div>
+
+</body>
+</html>

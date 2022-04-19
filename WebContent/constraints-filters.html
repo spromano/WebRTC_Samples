@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>getUserMedia and filters</title>
+
+  <style>
+    .none {
+      -webkit-filter: none;
+      filter: none;
+    }
+    
+    .grayscale {
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+    }
+    .invert {
+      -webkit-filter: invert(1);
+      filter: invert(1);
+    }
+    
+    button#snapshot {
+      margin: 0 10px 25px 0;
+      width: 110px;
+    }
+    video {
+      object-fit: cover;
+    }
+    
+    .button {
+    background-color: #DAA520;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 100px;
+    cursor: pointer;
+}
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+
+    <h1 style="color: #5e9ca0; text-align: center;"> <strong><code>getUserMedia()</code>: filters e snapshot </strong></h1>
+
+    <body bgcolor="#FFFACD">
+    
+    <video autoplay></video>
+ 
+    <canvas style="float:right"></canvas>
+	<p id="dimensions"></p>
+   
+  </div>
+  
+  <div id="container1">
+   <label for="select" style="color: #822222"><strong>Filter: </strong></label>
+    <select id="filter">
+      <option value="none">None</option>
+      <option value="grayscale">Grayscale</option>
+      <option value="invert">Invert</option>
+    </select>
+
+      
+   <button id="snapshot">Snapshot</button>
+</div>
+ 
+  
+   
+  <script src="js/get-user-media-filters.js"></script>
+  
+<div id="container2">
+  <a href="constraints.html" class="button">Esempio precedente</a>
+  <a href="index.html" class="button">Menu</a>
+  <a href="LocalPeerConnection.html" class="button">Esempio successivo</a>
+</div>
+ 
+</body>
+</html>
